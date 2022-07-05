@@ -12,4 +12,4 @@ This application has customized invoice templates and can be modified on request
 Feel free to use any part of the code base.
 Contact Details:
   Saranya Selvaraj
-  saranyaselvaraj1405@gmail.com
+  Email: saranyaselvaraj1405@gmail.com
