@@ -1,0 +1,14 @@
+
+.dialogBox{
+    -fx-background-color: #FFFFFF;
+}
+
+.dialogBox:header .header-panel{
+    -fx-background-color: #6c7a89;
+}
+
+.myDialog:header *.header-panel *.label{
+    -fx-font-size: 18px;
+    -fx-font-style: italic;
+    -fx-fill: #FFFFFF;
+}

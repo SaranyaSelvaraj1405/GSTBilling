@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import com.gluonhq.charm.glisten.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="RootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="973.0" prefWidth="1280.0" stylesheets="@../Stylesheets/MainPage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.billing.controllers.MainPageController">
+   <children>
+      <AnchorPane fx:id="BodyAnchorPane" prefHeight="640.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <AnchorPane id="MenuBarAnchorPane" fx:id="MenuAnchorPane" prefHeight="640.0" prefWidth="155.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="InvoiceMenuButton" layoutX="62.0" layoutY="2.0" mnemonicParsing="false" onAction="#showInvoiceTab" prefHeight="50.0" prefWidth="155.0" styleClass="MenuBarButton" text="Invoice" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+                  <Button fx:id="CustomerMenuButton" layoutX="62.0" layoutY="35.0" mnemonicParsing="false" onAction="#showCustomerTab" prefHeight="50.0" prefWidth="155.0" styleClass="MenuBarButton" text="Customer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />
+                  <Button fx:id="ItemMenuButton" layoutX="62.0" layoutY="72.0" mnemonicParsing="false" onAction="#showItemTab" prefHeight="50.0" prefWidth="155.0" styleClass="MenuBarButton" text="Item" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0" />
+                  <Button fx:id="PurchasesMenuButton" layoutX="62.0" layoutY="110.0" mnemonicParsing="false" onAction="#showPurchasesTab" prefHeight="50.0" prefWidth="155.0" styleClass="MenuBarButton" text="Purchases" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0" />
+                  <Button fx:id="SettingsMenuButton" layoutX="62.0" layoutY="146.0" mnemonicParsing="false" onAction="#showSettingsTab" prefHeight="50.0" prefWidth="155.0" styleClass="MenuBarButton" text="Settings" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="300.0" />
+                  <Button id="MenuBarButton" fx:id="LogoutMenuButton" layoutY="225.0" mnemonicParsing="false" onAction="#logoutEvent" prefHeight="50.0" prefWidth="155.0" styleClass="MenuBarButton" text="Logout" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="350.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="SettingsAnchorPane" prefHeight="640.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="933.0" prefWidth="1124.0" styleClass="anchorpane">
+                           <children>
+                              <Label layoutX="57.0" layoutY="41.0" styleClass="TabSubHeadingLabel" text="Change Password" />
+                              <Label layoutX="58.0" layoutY="188.0" styleClass="TabSubHeadingLabel" text="Company Details" />
+                              <Label layoutX="57.0" layoutY="548.0" styleClass="TabSubHeadingLabel" text="Financial Year" />
+                              <Label layoutX="76.0" layoutY="645.0" text="Select Financial Year" />
+                              <Label layoutX="57.0" layoutY="724.0" styleClass="TabSubHeadingLabel" text="Backup" />
+                              <ChoiceBox fx:id="SettingsTab_SelectFinancialYearChoiceBox" layoutX="250.0" layoutY="641.0" prefWidth="150.0" />
+                              <Button fx:id="SettingTab_FinancialYearReloadButton" layoutX="504.0" layoutY="641.0" mnemonicParsing="false" onAction="#changeFinancialYear" text="Reload" />
+                              <Button fx:id="SettingsTab_FinancialYearResetButton" layoutX="504.0" layoutY="597.0" mnemonicParsing="false" onAction="#resetCurrentFinancialYear" prefHeight="25.0" prefWidth="55.0" text="Reset" />
+                              <Label layoutX="76.0" layoutY="601.0" text="Current Financel Year  " />
+                              <Text fx:id="SettingsTab_CurrentFinancialYearText" layoutX="250.0" layoutY="614.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                              <Label layoutX="75.0" layoutY="243.0" text="Company Name" />
+                              <Label layoutX="75.0" layoutY="280.0" text="GSTIN" />
+                              <Label layoutX="76.0" layoutY="351.0" text="Address" />
+                              <Label layoutX="501.0" layoutY="260.0" text="Bank Details" />
+                              <TextField fx:id="SettingsTab_CompanyNameTextField" layoutX="205.0" layoutY="239.0" prefHeight="25.0" prefWidth="219.0" />
+                              <TextField fx:id="SettingsTab_CompanyGSTTextField" layoutX="205.0" layoutY="276.0" prefHeight="25.0" prefWidth="219.0" />
+                              <TextArea fx:id="SettingsTab_CompanyAddressTextArea" layoutX="204.0" layoutY="315.0" prefHeight="89.0" prefWidth="219.0" />
+                              <TextArea fx:id="SettingsTab_CompanyBankDetailsTextArea" layoutX="596.0" layoutY="240.0" prefHeight="73.0" prefWidth="200.0" />
+                              <Button fx:id="SettingsTab_CompanyDetailsSaveButton" layoutX="550.0" layoutY="347.0" mnemonicParsing="false" onAction="#saveCompanyDetailsEvent" text="Save" />
+                              <Button fx:id="SettingsTab_CompanyDetailsCancelButton" layoutX="728.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelCompanyDetailsEvent" text="Cancel" />
+                              <Label layoutX="76.0" layoutY="455.0" text="Declaration" />
+                              <TextArea fx:id="SettingsTab_DeclarationTextArea" layoutX="204.0" layoutY="421.0" prefHeight="85.0" prefWidth="218.0" />
+                              <Button fx:id="SettingsTab_CompanyDetailsEditButton" layoutX="637.0" layoutY="347.0" mnemonicParsing="false" onAction="#editCompanyDetailsEvent" prefHeight="25.0" prefWidth="54.0" text="Edit" />
+                              <Button fx:id="SettingsTab_CompanyDetailsUpdateButton" layoutX="542.0" layoutY="347.0" mnemonicParsing="false" onAction="#updateCompanyDetailsEvent" text="Update" />
+                              <Label layoutX="75.0" layoutY="83.0" text="New Password" />
+                              <Label layoutX="75.0" layoutY="118.0" text="Confirm New Password" />
+                              <Button fx:id="SettingsTab_ChangePasswordButton" layoutX="457.0" layoutY="75.0" mnemonicParsing="false" onAction="#changePasswordEvent" text="Change Password" />
+                              <Button fx:id="SettingsTab_SelectDirectoryForBackUpButton" layoutX="600.0" layoutY="776.0" mnemonicParsing="false" onAction="#selectBackUpDirectory" text="Select Directory" />
+                              <Button fx:id="SettingsTab_RestoreButton" layoutX="394.0" layoutY="828.0" mnemonicParsing="false" onAction="#restoreEvent" text="Restore" />
+                              <Label fx:id="SettingsTab_SelectedDirectoryLabel" layoutX="76.0" layoutY="780.0" text="Selected Directory" />
+                              <TextField fx:id="SettingsTab_SelectedDirectoryTextField" layoutX="249.0" layoutY="776.0" prefHeight="25.0" prefWidth="329.0" />
+                              <Button fx:id="SettingsTab_BackUpButton" layoutX="295.0" layoutY="828.0" mnemonicParsing="false" onAction="#backUpEvent" text="BackUp" />
+                              <Text fx:id="SettingsTab_PasswordErrorText" layoutX="637.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                              <Button fx:id="SettingsTab_ChangePasswordCancelButton" layoutX="488.0" layoutY="114.0" mnemonicParsing="false" onAction="#changePasswordCancelEvent" text="Cancel" />
+                              <Button fx:id="SettingsTab_BackUprestoreCancelButton" layoutX="489.0" layoutY="828.0" mnemonicParsing="false" onAction="#backUpRestoreCancelEvent" prefHeight="25.0" prefWidth="60.0" text="Cancel" />
+                              <Text fx:id="SettingsTab_BackRestoreDirectoryErrorText" layoutX="761.0" layoutY="793.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                              <Text fx:id="SettingsTab_CompanyDetailsErrorText" layoutX="548.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                              <PasswordField fx:id="SettingsTab_NewPasswordTextField" layoutX="250.0" layoutY="71.0" />
+                              <PasswordField fx:id="SettingsTab_ConfirmNewPasswordTextField" layoutX="251.0" layoutY="114.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="CustomerAnchorPane" prefHeight="640.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ScrollPane fx:id="CustomerScrollPane" prefHeight="200.0" prefWidth="200.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane fx:id="CustomerInnerAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="933.0" prefWidth="1123.0" styleClass="anchorpane">
+                           <children>
+                              <Label layoutX="58.0" layoutY="56.0" styleClass="TabHeadingLabel" text="New Customer">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                              <Label layoutX="96.0" layoutY="144.0" text="Customer Name" />
+                              <Label layoutX="96.0" layoutY="182.0" text="Customer GST" />
+                              <Label layoutX="96.0" layoutY="257.0" text="Customer Address" />
+                              <TextField fx:id="CustomerTab_CustomerNameTextField" layoutX="227.0" layoutY="140.0" prefHeight="25.0" prefWidth="201.0" />
+                              <TextField fx:id="CustomerTab_CustomerGSTTextField" layoutX="227.0" layoutY="178.0" prefHeight="25.0" prefWidth="202.0" />
+                              <TextArea fx:id="CustomerTab_CustomerAddressTextArea" layoutX="227.0" layoutY="218.0" prefHeight="95.0" prefWidth="203.0" />
+                              <Button fx:id="CustomerTab_AddButton" layoutX="227.0" layoutY="355.0" mnemonicParsing="false" onAction="#addCustomerEvent" prefHeight="25.0" prefWidth="68.0" text="Add" />
+                              <Button fx:id="CustomerTab_CancelButton" layoutX="321.0" layoutY="355.0" mnemonicParsing="false" onAction="#cancelCustomerEvent" prefHeight="25.0" prefWidth="66.0" text="Cancel" />
+                              <TableView fx:id="CustomerTab_CustomerTable" layoutX="56.0" layoutY="578.0" prefHeight="291.0" prefWidth="834.0">
+                                <columns>
+                                  <TableColumn fx:id="CustomerTab_TableCustomerName" prefWidth="263.0" text="Customer Name" />
+                                    <TableColumn fx:id="CustomerTab_TableCustomerGST" minWidth="0.0" prefWidth="209.0" text="GST" />
+                                    <TableColumn fx:id="CustomerTab_TableCustomerAddress" minWidth="0.0" prefWidth="286.0" text="Address" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                          <MenuItem fx:id="CustomerTab_EditMenuItem" mnemonicParsing="false" onAction="#editCustomerEvent" text="Edit" />
+                                        <MenuItem fx:id="CustomerTab_DeleteMenuItem" mnemonicParsing="false" onAction="#deleteCustomerEvent" text="Delete" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Button fx:id="CustomerTab_UpdateButton" layoutX="416.0" layoutY="355.0" mnemonicParsing="false" onAction="#updateCustomerEvent" prefHeight="25.0" prefWidth="62.0" text="Update" />
+                              <Label layoutX="57.0" layoutY="430.0" styleClass="TabSubHeadingLabel" text="Search Customer List" />
+                              <Label layoutX="108.0" layoutY="507.0" text="Search Field" />
+                              <ChoiceBox fx:id="CustomerTab_SearchFieldChoiceBox" layoutX="204.0" layoutY="503.0" prefWidth="150.0" />
+                              <Label layoutX="419.0" layoutY="507.0" text="Value" />
+                              <TextField fx:id="CustomerTab_SearchValueTextField" layoutX="487.0" layoutY="503.0" />
+                              <Button fx:id="CustomerTab_SearchButton" layoutX="695.0" layoutY="503.0" mnemonicParsing="false" onAction="#searchCustomerEvent" prefHeight="25.0" prefWidth="69.0" text="Search" />
+                              <Button fx:id="CustomerTab_ClearSearchButton" layoutX="782.0" layoutY="503.0" mnemonicParsing="false" onAction="#searchClearCustomerEvent" text="Clear Search" />
+                              <Text fx:id="CustomerTab_GSTErrorText" layoutX="465.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                              <Text fx:id="CustomerTab_NameErrorText" layoutX="466.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ItemAnchorPane" prefHeight="640.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ScrollPane fx:id="ItemScrollPane" prefHeight="200.0" prefWidth="200.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane fx:id="ItemInnerAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="933.0" prefWidth="1127.0" styleClass="anchorpane">
+                           <children>
+                              <Label layoutX="76.0" layoutY="43.0" styleClass="TabHeadingLabel" text="Item" />
+                              <Label layoutX="76.0" layoutY="117.0" text="Item Name" />
+                              <Label layoutX="76.0" layoutY="154.0" text="Item Description" />
+                              <Label layoutX="76.0" layoutY="203.0" text="HNSC Code" />
+                              <Label layoutX="76.0" layoutY="243.0" text="Unit" />
+                              <TextField fx:id="ItemTab_ItemNameTextField" layoutX="183.0" layoutY="113.0" prefHeight="25.0" prefWidth="196.0" />
+                              <TextField fx:id="ItemTab_ItemDescriptionTextField" layoutX="183.0" layoutY="150.0" prefHeight="25.0" prefWidth="195.0" />
+                              <TextField fx:id="ItemTab_ItemCodeTextField" layoutX="183.0" layoutY="188.0" />
+                              <TextField fx:id="ItemTab_UnitTextField" layoutX="183.0" layoutY="227.0" />
+                              <Button fx:id="ItemTab_AddButton" layoutX="165.0" layoutY="285.0" mnemonicParsing="false" onAction="#addItemEvent" prefHeight="25.0" prefWidth="74.0" text="Add" />
+                              <Button fx:id="ItemTab_CancelButton" layoutX="281.0" layoutY="285.0" mnemonicParsing="false" onAction="#cancelItemEvent" prefHeight="25.0" prefWidth="65.0" text="Cancel" />
+                              <TableView fx:id="ItemTab_ItemTable" layoutX="52.0" layoutY="492.0" prefHeight="200.0" prefWidth="809.0">
+                                <columns>
+                                  <TableColumn fx:id="ItemTab_TableItemName" prefWidth="243.0" text="Item Name" />
+                                  <TableColumn fx:id="ItemTab_TableItemDescription" minWidth="0.0" prefWidth="258.0" text="Item Description" />
+                                    <TableColumn fx:id="ItemTab_TableCode" prefWidth="91.0" text="HSNC Code" />
+                                    <TableColumn fx:id="ItemTab_TableUnit" prefWidth="216.0" text="Unit" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                          <MenuItem fx:id="ItemTab_EditMenuItem" mnemonicParsing="false" onAction="#editItemEvent" text="Edit" />
+                                        <MenuItem fx:id="ItemTab_DeleteMenuItem" mnemonicParsing="false" onAction="#deleteItemEvent" text="Delete" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Button fx:id="ItemTab_UpdateButton" layoutX="379.0" layoutY="285.0" mnemonicParsing="false" onAction="#updateItemEvent" prefHeight="25.0" prefWidth="61.0" text="Update" />
+                              <Label layoutX="89.0" layoutY="420.0" text="Search Field" />
+                              <Label layoutX="394.0" layoutY="420.0" text="Value" />
+                              <ChoiceBox fx:id="ItemTab_SearchFieldChoiceBox" layoutX="183.0" layoutY="415.0" prefWidth="150.0" />
+                              <TextField fx:id="ItemTab_SearchValueTextField" layoutX="469.0" layoutY="417.0" />
+                              <Button layoutX="666.0" layoutY="417.0" mnemonicParsing="false" onAction="#searchItemEvent" prefHeight="25.0" prefWidth="72.0" text="Search" />
+                              <Button fx:id="ItemTab_ClearSearchButton" layoutX="763.0" layoutY="417.0" mnemonicParsing="false" onAction="#searchClearItemEvent" text="Clear Search" />
+                              <Label layoutX="69.0" layoutY="355.0" styleClass="TabSubHeadingLabel" text="Search Items" />
+                              <Text fx:id="ItemTab_ItemNameErrorText" layoutX="435.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                              <Text fx:id="ItemTab_ItemCodeErrorText" layoutX="435.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="PurchasesAnchorPane" prefHeight="200.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="933.0" prefWidth="1127.0" styleClass="anchorpane">
+                           <children>
+                              <Label layoutX="72.0" layoutY="50.0" styleClass="TabHeadingLabel" text="Purchases" />
+                              <Label layoutX="74.0" layoutY="116.0" text="Serial Number" />
+                              <Label layoutX="74.0" layoutY="147.0" prefHeight="17.0" prefWidth="101.0" text="Invoice Number" />
+                              <Label layoutX="73.0" layoutY="185.0" text="Date" />
+                              <Label layoutX="73.0" layoutY="217.0" text="Company Name" />
+                              <Label layoutX="74.0" layoutY="256.0" text="Item Description" />
+                              <Label layoutX="73.0" layoutY="288.0" text="Grand Total" />
+                              <TextField fx:id="PurchaseTab_SerialNumberTextField" layoutX="198.0" layoutY="112.0" />
+                              <TextField fx:id="PurchaseTab_InvoiceNumberTextField" layoutX="198.0" layoutY="143.0" />
+                              <TextField fx:id="PurchaseTab_GrandTotalTextField" layoutX="198.0" layoutY="293.0" />
+                              <TextField fx:id="PurchaseTab_CompanyNameTextField" layoutX="198.0" layoutY="222.0" />
+                              <TextField fx:id="PurchaseTab_ItemDescriptionTextField" layoutX="198.0" layoutY="261.0" />
+                              <DatePicker fx:id="PurchaseTab_DateDatePicker" layoutX="198.0" layoutY="181.0" prefHeight="25.0" prefWidth="147.0" />
+                              <Button fx:id="PurchaseTab_AddButton" layoutX="564.0" layoutY="112.0" mnemonicParsing="false" onAction="#addPurchaseEvent" prefHeight="25.0" prefWidth="62.0" text="Add" />
+                              <Button fx:id="PurchaseTab_CancelButton" layoutX="564.0" layoutY="156.0" mnemonicParsing="false" onAction="#cancelPurchaseEvent" prefHeight="25.0" prefWidth="63.0" text="Cancel" />
+                              <Button fx:id="PurchaseTab_UpdateButton" layoutX="565.0" layoutY="205.0" mnemonicParsing="false" onAction="#updatePurchaseEvent" prefHeight="25.0" prefWidth="61.0" text="Update" />
+                              <TableView fx:id="PurchaseTab_PurchaseTable" layoutX="36.0" layoutY="492.0" prefHeight="419.0" prefWidth="883.0">
+                                <columns>
+                                  <TableColumn fx:id="PurchaseTab_TableSerialNumber" prefWidth="96.0" text="Serial Number" />
+                                  <TableColumn fx:id="PurchaseTab_TableInvoiceNumber" prefWidth="111.0" text="Invoice Number" />
+                                    <TableColumn fx:id="PurchaseTab_TableDate" prefWidth="93.0" text="Purchase Date" />
+                                    <TableColumn fx:id="PurchaseTab_TableCompanyName" minWidth="0.0" prefWidth="223.0" text="Company Name" />
+                                    <TableColumn fx:id="PurchaseTab_TableItemDescription" minWidth="0.0" prefWidth="250.0" text="Item Description" />
+                                    <TableColumn fx:id="PurchaseTab_TableGrandTotal" prefWidth="109.0" text="Grand Total" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                          <MenuItem fx:id="PurchaseTab_EditMenuItem" mnemonicParsing="false" onAction="#editPurchaseEvent" text="Edit" />
+                                        <MenuItem fx:id="PurchaseTab_DeleteMenuItem" mnemonicParsing="false" onAction="#deletePurchaseEvent" text="Delete" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Label layoutX="73.0" layoutY="423.0" text="Search Field" />
+                              <Label layoutX="373.0" layoutY="423.0" text="Search Value" />
+                              <ChoiceBox fx:id="PurchaseTab_SearchFieldChoiceBox" layoutX="162.0" layoutY="421.0" prefWidth="150.0" />
+                              <TextField fx:id="PurchaseTab_SearchValueTextField" layoutX="454.0" layoutY="421.0" />
+                              <Button fx:id="PurchaseTab_SearchButton" layoutX="692.0" layoutY="421.0" mnemonicParsing="false" onAction="#searchPurchaseEvent" prefHeight="25.0" prefWidth="78.0" text="Search" />
+                              <Button fx:id="PurchaseTab_ClearSearchButton" layoutX="793.0" layoutY="419.0" mnemonicParsing="false" onAction="#searchClearPurchaseEvent" text="Clear Search" />
+                              <Label layoutX="73.0" layoutY="353.0" styleClass="TabSubHeadingLabel" text="Search Purchases" />
+                              <Text fx:id="PurchaseTab_ErrorText" layoutX="583.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children></AnchorPane>
+            <AnchorPane fx:id="InvoiceAnchorPane" prefHeight="640.0" prefWidth="1123.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ScrollPane fx:id="InvoiceTab_InvoiceListScrollPane" prefHeight="200.0" prefWidth="200.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                    <content>
+                      <AnchorPane fx:id="InvoiceTab_InvoiceListAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="902.0" prefWidth="1124.0" styleClass="anchorpane">
+                           <children>
+                              <TableView fx:id="InvoiceList_InvoiceTable" layoutX="25.0" layoutY="151.0" prefHeight="200.0" prefWidth="884.0">
+                                <columns>
+                                  <TableColumn fx:id="InvoiceList_InvoiceTableInvoiceNumber" prefWidth="106.0" text="Invoice Number" />
+                                  <TableColumn fx:id="InvoiceList_InvoiceTableInvoiceDate" prefWidth="105.0" text="Date" />
+                                    <TableColumn fx:id="InvoiceList_InvoiceTableCustomerName" prefWidth="204.0" text="Customer Name" />
+                                    <TableColumn fx:id="InvoiceList_InvoiceTableCustomerGST" prefWidth="122.0" text="Customer GST" />
+                                    <TableColumn fx:id="InvoiceList_InvoiceTableGrandTotal" prefWidth="120.0" text="Grand Total" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem fx:id="InvoiceList_EditMenuItem" mnemonicParsing="false" onAction="#invoiceEditEvent" text="Edit" />
+                                          <MenuItem fx:id="InvoiceList_DeleteMenuItem" mnemonicParsing="false" onAction="#invoiceDeleteEvent" text="Delete" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Label layoutX="72.0" layoutY="42.0" styleClass="TabSubHeadingLabel" text="Search Invoice List" />
+                              <Label layoutX="79.0" layoutY="97.0" text="Search Field" />
+                              <Label layoutX="415.0" layoutY="106.0" text="Value" />
+                              <ChoiceBox fx:id="InvoiceList_SearchFieldChoiceBox" layoutX="170.0" layoutY="93.0" prefWidth="150.0" />
+                              <TextField fx:id="InvoiceList_SearchValueTextField" layoutX="460.0" layoutY="94.0" />
+                              <Button fx:id="InvoiceList_SearchButton" layoutX="666.0" layoutY="93.0" mnemonicParsing="false" onAction="#searchInvoiceEvent" text="Search" />
+                              <Button fx:id="InvoiceList_ClearSearchButton" layoutX="773.0" layoutY="93.0" mnemonicParsing="false" onAction="#searchClearInvoiceEvent" text="Clear Search" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="InvoiceTab_NewInvoiceScrollPane" pannable="true" prefHeight="200.0" prefWidth="200.0" styleClass="anchorpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                     <content>
+                        <AnchorPane prefHeight="903.0" prefWidth="1123.0" styleClass="anchorpane">
+                           <children>
+                              <Label layoutX="21.0" layoutY="75.0" text="Invoice Number" />
+                              <Label layoutX="384.0" layoutY="87.0" text="Date" />
+                              <Label layoutX="22.0" layoutY="212.0" text="Billing Address" />
+                              <Label layoutX="685.0" layoutY="111.0" text="Delivery Address" />
+                              <Label layoutX="22.0" layoutY="110.0" text="Customer Name" />
+                              <Label layoutX="21.0" layoutY="148.0" text="Customer GST" />
+                              <Label layoutX="384.0" layoutY="160.0" text="LR Date" />
+                              <Label layoutX="383.0" layoutY="197.0" text="Delivery Through" />
+                              <Label layoutX="383.0" layoutY="233.0" text="E-Way Bill No." />
+                              <Label layoutX="685.0" layoutY="206.0" text="Terms of Delivery" />
+                              <Label layoutX="23.0" layoutY="280.0" styleClass="TabSubHeadingLabel" text="Bill Item">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label layoutX="22.0" layoutY="336.0" text="Serial Number" />
+                              <Label layoutX="23.0" layoutY="371.0" text="Item Name" />
+                              <Label layoutX="22.0" layoutY="408.0" text="HNSC Code" />
+                              <Label layoutX="209.0" layoutY="411.0" text="Unit" />
+                              <Label layoutX="385.0" layoutY="333.0" text="No.of Packages" />
+                              <Label layoutX="385.0" layoutY="369.0" text="Weight per Package" />
+                              <Label layoutX="386.0" layoutY="408.0" text="Total Weight" />
+                              <Label fx:id="NewInvoice_CGSTLabel" layoutX="745.0" layoutY="330.0" text="CGST" />
+                              <Label fx:id="NewInvoice_SGSTLabel" layoutX="746.0" layoutY="368.0" text="SGST" />
+                              <Label fx:id="NewInvoice_IGSTLabel" layoutX="749.0" layoutY="330.0" text="IGST" />
+                              <Label layoutX="813.0" layoutY="300.0" text="Perc" />
+                              <Label layoutX="874.0" layoutY="301.0" text="Amount" />
+                              <Label layoutX="22.0" layoutY="443.0" text="Rate per" />
+                              <Label layoutX="209.0" layoutY="442.0" text="Unit" />
+                              <Label layoutX="706.0" layoutY="280.0" styleClass="TabSubHeadingLabel" text="Tax Calculation" />
+                              <TableView fx:id="NewInvoice_BillItemTable" layoutX="14.0" layoutY="514.0" prefHeight="135.0" prefWidth="957.0">
+                                 <columns>
+                                    <TableColumn fx:id="NewInvoice_TableSerialNumber" prefWidth="35.0" text="S.No" />
+                                    <TableColumn fx:id="NewInvoice_TableItemName" prefWidth="114.99996948242188" text="Item Name" />
+                                    <TableColumn fx:id="NewInvoice_TableItemCode" prefWidth="75.0" text="HSNC Code" />
+                                    <TableColumn fx:id="NewInvoice_TableNumberOfPackages" prefWidth="92.0" text="No.of Packages" />
+                                    <TableColumn fx:id="NewInvoice_TableWeightPerPackage" prefWidth="101.0" text="Weight/Package" />
+                                    <TableColumn fx:id="NewInvoice_TableTotalWeight" prefWidth="84.0" text="Total Weight" />
+                                    <TableColumn fx:id="NewInvoice_TableRate" prefWidth="65.0" text="Rate" />
+                                    <TableColumn fx:id="NewInvoice_TableRatePerUnit" prefWidth="75.0" text="Rate/Unit" />
+                                    <TableColumn fx:id="NewInvoice_TableCGSTPercentage" prefWidth="57.0" text="CGST%" />
+                                    <TableColumn fx:id="NewInvoice_TableSGSTPercentage" prefWidth="62.0" text="SGST%" />
+                                    <TableColumn fx:id="NewInvoice_TableIGSTPercentage" prefWidth="66.0" text="IGST%" />
+                                    <TableColumn fx:id="NewInvoice_TableTotalAmount" prefWidth="138.0" text="Total Amount" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                          <MenuItem fx:id="NewInvoice_ItemEditMenuItem" mnemonicParsing="false" onAction="#editBillItemEvent" text="Edit" />
+                                          <MenuItem fx:id="NewInvoice_ItemDeleteMenuItem" mnemonicParsing="false" onAction="#deleteBillItemEvent" text="Delete" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Label layoutX="361.0" layoutY="712.0" text="Total Amount" />
+                              <Label layoutX="361.0" layoutY="746.0" text="Round Off" />
+                              <Label layoutX="362.0" layoutY="780.0" text="Grand Total" />
+                              <TextField fx:id="NewInvoice_InvoiceNumberTextField" layoutX="125.0" layoutY="70.0" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <TextArea fx:id="NewInvoice_BillingAddressTextArea" layoutX="125.0" layoutY="181.0" prefHeight="75.0" prefWidth="219.0" style="-fx-effect: null;" />
+                              <TextField fx:id="NewInvoice_CustomerGSTTextField" layoutX="125.0" layoutY="144.0" onAction="#loadCustomerDetailsWithGST" prefHeight="25.0" prefWidth="219.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_DeliveryThroughTextField" layoutX="489.0" layoutY="193.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_DestinationTextField" layoutX="489.0" layoutY="229.0" styleClass="inputTextField" />
+                              <TextArea fx:id="NewInvoice_TermsOfDeliveryTextArea" layoutX="803.0" layoutY="174.0" prefHeight="81.0" prefWidth="197.0" />
+                              <TextArea fx:id="NewInvoice_ShippingAddressTextArea" layoutX="803.0" layoutY="80.0" prefHeight="79.0" prefWidth="195.0" />
+                              <TextField fx:id="NewInvoice_ItemSerialNumberTextField" layoutX="124.0" layoutY="332.0" prefHeight="25.0" prefWidth="68.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_ItemNameTextField" layoutX="125.0" layoutY="367.0" onAction="#loadItemDetailsWithName" prefHeight="25.0" prefWidth="213.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_ItemCodeTextField" layoutX="125.0" layoutY="404.0" onAction="#loadItemDetailsWithCode" prefHeight="25.0" prefWidth="68.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_ItemUnitTextField" layoutX="241.0" layoutY="402.0" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_NumberOfPackagesTextField" layoutX="503.0" layoutY="325.0" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_WeightPerPackageTextField" layoutX="503.0" layoutY="363.0" onAction="#calculateTotalWeightEvent" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <Label layoutX="384.0" layoutY="123.0" text="LR Number" />
+                              <TextField fx:id="NewInvoice_LRNumberTextField" layoutX="489.0" layoutY="119.0" styleClass="inputTextField" />
+                              <DatePicker fx:id="NewInvoice_LRDateDatePicker" layoutX="489.0" layoutY="156.0" prefHeight="25.0" prefWidth="149.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_CGSTPercentageTextField" layoutX="796.0" layoutY="328.0" onAction="#calculateCGSTAmountEvent" prefHeight="25.0" prefWidth="45.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_SGSTPercentageTextField" layoutX="796.0" layoutY="364.0" onAction="#calculateSGSTAmountEvent" prefHeight="25.0" prefWidth="45.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_IGSTPercentageTextField" layoutX="796.0" layoutY="328.0" onAction="#calculateIGSTAmountEvent" prefHeight="25.0" prefWidth="45.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_CGSTAmountTextField" layoutX="853.0" layoutY="328.0" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_SGSTAmountTextField" layoutX="853.0" layoutY="364.0" onAction="#calculateTotalItemAmountEvent" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_IGSTAmountTextField" layoutX="853.0" layoutY="328.0" onAction="#calculateTotalItemAmountEvent" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_TotalWeightTextField" layoutX="503.0" layoutY="401.0" onAction="#calculateItemAmountEvent" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_RatePerTextField" layoutX="125.0" layoutY="440.0" prefHeight="25.0" prefWidth="66.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_TotalAmountTextField" layoutX="451.0" layoutY="708.0" onAction="#calculateRoundOffEvent" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_RoundOffTextField" layoutX="451.0" layoutY="742.0" onAction="#calculateGrandTotalEvent" prefHeight="25.0" prefWidth="70.0" styleClass="inputTextField" />
+                              <TextField fx:id="NewInvoice_GrandTotalTextField" layoutX="451.0" layoutY="776.0" styleClass="inputTextField" />
+                              <Button fx:id="NewInvoice_ItemAddButton" layoutX="640.0" layoutY="455.0" mnemonicParsing="false" onAction="#addBillItemEvent" prefHeight="25.0" prefWidth="68.0" text="Add" />
+                              <Button fx:id="NewInvoice_InvoiceSaveButton" layoutX="346.0" layoutY="832.0" mnemonicParsing="false" onAction="#addInvoiceEvent" prefHeight="25.0" prefWidth="68.0" text="Save" />
+                              <Button fx:id="NewInvoice_InvoiceUpdateButton" layoutX="469.0" layoutY="832.0" mnemonicParsing="false" onAction="#invoiceUpdateEvent" prefHeight="25.0" prefWidth="68.0" text="Update" />
+                              <Button fx:id="NewInvoice_InvoiceCancelButton" layoutX="590.0" layoutY="832.0" mnemonicParsing="false" onAction="#invoiceCancelEvent" prefHeight="25.0" prefWidth="68.0" text="Cancel" />
+                              <TextField fx:id="NewInvoice_RatePerUnitTextField" layoutX="241.0" layoutY="438.0" prefHeight="25.0" prefWidth="95.0" styleClass="inputTextField" />
+                              <Button fx:id="NewInvoice_ItemUpdateButton" layoutX="746.0" layoutY="455.0" mnemonicParsing="false" onAction="#updateBillItemEvent" prefHeight="25.0" prefWidth="68.0" text="Update" />
+                              <Button fx:id="NewInvoice_ItemCancelButton" layoutX="850.0" layoutY="454.0" mnemonicParsing="false" onAction="#cancelBillItemEvent" prefHeight="25.0" prefWidth="68.0" text="Cancel" />
+                              <TextField fx:id="NewInvoice_CustomerNameTextField" layoutX="124.0" layoutY="107.0" onAction="#loadCustomerDetailsWithName" prefHeight="25.0" prefWidth="221.0" />
+                              <Label layoutX="385.0" layoutY="444.0" text="Item Amount " />
+                              <Label layoutX="640.0" layoutY="406.0" text="Total Item Amount" />
+                              <TextField fx:id="NewInvoice_ItemAmountTextField" layoutX="503.0" layoutY="438.0" prefHeight="25.0" prefWidth="95.0" />
+                              <TextField fx:id="NewInvoice_TotalItemAmountTextField" layoutX="796.0" layoutY="401.0" prefHeight="25.0" prefWidth="155.0" />
+                              <Button fx:id="NewInvoice_PrintButton" layoutX="221.0" layoutY="832.0" mnemonicParsing="false" onAction="#printInvoiceEvent" text="Print Invoice" />
+                              <DatePicker fx:id="NewInvoice_DateDatePicker" layoutX="489.0" layoutY="83.0" prefHeight="25.0" prefWidth="149.0" styleClass="inputTextField" />
+                              <RadioButton fx:id="NewInvoice_IGSTRadioButton" layoutX="640.0" layoutY="332.0" mnemonicParsing="false" onAction="#IGSTSelectionEvent" selected="true" text="IGST">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="GSTToggleGroup" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="NewInvoice_CGSTSGSTRadioButton" layoutX="640.0" layoutY="359.0" mnemonicParsing="false" onAction="#CGSTSelectionEvent" text="CGST &amp; SGST" toggleGroup="$GSTToggleGroup" />
+                              <Label layoutX="472.0" layoutY="16.0" styleClass="TabHeadingLabel" text="New Invoice" />
+                              <CheckBox fx:id="NewInvoice_DeliveryAddressCheckBox" layoutX="805.0" layoutY="40.0" mnemonicParsing="false" onAction="#deliveryAddressEvent" text="Delivery at Billing Address" />
+                              <Text fx:id="NewInvoice_InvoiceFieldErrorText" layoutX="182.0" layoutY="759.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                              <Text fx:id="InvoiceTab_BillItemFieldErrorText" layoutX="289.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ValidationErrorText" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <AnchorPane fx:id="InvoiceMenuAnchorPane" prefHeight="30.0" prefWidth="1125.0" styleClass="anchorpane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="InvoiceTab_InvoiceListMenuButton" layoutX="253.0" layoutY="-1.0" mnemonicParsing="false" onAction="#showInvoiceListTab" prefHeight="30.0" prefWidth="250.0" styleClass="InvoiceMenuButton" text="Invoice List" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="0.0" />
+                        <Button fx:id="InvoiceTab_NewInvoiceMenuButton" layoutY="-1.0" mnemonicParsing="false" onAction="#showNewInvoiceTab" prefHeight="30.0" prefWidth="250.0" styleClass="InvoiceMenuButton" text="New Invoice" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="HeaderAnchorPane" prefHeight="40.0" prefWidth="1280.0" style="-fx-background-color: #494961;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="20.0" fitWidth="40.0" layoutX="1230.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+               <image>
+                  <Image url="@../../../../resources/Images/Custom%20dimensions%20200x100%20px.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="HeaderFinancilaYearText" layoutX="33.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="HeaderText" text="Text" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

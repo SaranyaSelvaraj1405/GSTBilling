@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.7</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<packaging>jar</packaging>
+	
+	<groupId>com.billing</groupId>
+	<artifactId>Mains</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>SKVBilling</name>
+	<description>SKV Billing Application</description>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	
+	<repositories>
+        <repository>
+            <id>com.e-iceblue</id>
+            <name>e-iceblue</name>
+            <url>https://repo.e-iceblue.com/nexus/content/groups/public/</url>
+        </repository>
+	
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+    		<groupId>org.openjfx</groupId>
+    		<artifactId>javafx-graphics</artifactId>
+    		<version>18.0.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+		<dependency>
+    		<groupId>org.openjfx</groupId>
+    		<artifactId>javafx-controls</artifactId>
+    		<version>11</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-base -->
+		<dependency>
+    		<groupId>org.openjfx</groupId>
+    		<artifactId>javafx-base</artifactId>
+    		<version>18.0.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
+		<dependency>
+    		<groupId>org.openjfx</groupId>
+    		<artifactId>javafx-fxml</artifactId>
+    		<version>18.0.1</version>
+		</dependency>
+		<dependency>
+    		<groupId>net.rgielen</groupId>
+    		<artifactId>javafx-weaver-spring</artifactId>
+    		<version>1.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.rgielen/javafx-weaver-spring-boot-starter -->
+		<dependency>
+    		<groupId>net.rgielen</groupId>
+    		<artifactId>javafx-weaver-spring-boot-starter</artifactId>
+    		<version>1.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.controlsfx/controlsfx -->
+		<dependency>
+    		<groupId>org.controlsfx</groupId>
+    		<artifactId>controlsfx</artifactId>
+    		<version>11.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-web -->
+		<dependency>
+    		<groupId>org.openjfx</groupId>
+    		<artifactId>javafx-web</artifactId>
+    		<version>19-ea+8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>e-iceblue</groupId>
+   			<artifactId>spire.doc.free</artifactId>
+    		<version>5.2.0</version>
+		</dependency>
+		<dependency>
+	    	<groupId>com.github.Dansoftowner</groupId>
+	    	<artifactId>PDFViewerFX</artifactId>
+	    	<version>0.8</version>
+		</dependency>
+		<dependency>
+  			<groupId>org.apache.pdfbox</groupId>
+  			<artifactId>pdfbox</artifactId>
+  			<version>2.0.22</version>
+		</dependency>		
+	</dependencies>
+	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+                	<mainClass>com.billing.SkvBillingApplication</mainClass>
+                	<executable>true</executable>
+            	</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+
+</project>
