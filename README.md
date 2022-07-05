@@ -7,6 +7,7 @@ GUI created using JavaFx.
 Database used is PostgreSQL.
 
 This application is currently designed and tested for Windows operating system only.
+Needs Java8 or above to function properly.
 This application has customized invoice templates and can be modified on request.
 
 Feel free to use any part of the code base.
