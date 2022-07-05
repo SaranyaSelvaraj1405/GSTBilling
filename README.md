@@ -10,6 +10,7 @@ This application is currently designed and tested for Windows operating system o
 This application has customized invoice templates and can be modified on request.
 
 Feel free to use any part of the code base.
+
 Contact Details:
-  Saranya Selvaraj
+  Saranya Selvaraj,
   Email: saranyaselvaraj1405@gmail.com
