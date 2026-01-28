@@ -12,7 +12,7 @@
 	
 	<groupId>com.billing</groupId>
 	<artifactId>Mains</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>SKVBilling</name>
 	<description>SKV Billing Application</description>
 	<properties>
