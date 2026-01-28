@@ -127,5 +127,12 @@
 			
 		</plugins>
 	</build>
+	<distributionManagement>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/SaranyaSelvaraj1405/GSTBilling-library</url>
+  </repository>
+</distributionManagement>
+
 
 </project>
