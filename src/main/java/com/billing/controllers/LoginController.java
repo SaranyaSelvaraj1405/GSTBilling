@@ -83,11 +83,11 @@ public class LoginController implements Initializable{
 		  }
 		  else
 		  {
-			 MessageText.setText("Login Failed!\nInvalid Credentials");
+			 MessageText.setText("Login Failed!!\nInvalid Credentials");
 		  }
 		 
 		  }catch(Exception e) {
-			  SkvBillingApplication.logger.error("Exception During Credentials Validation", e);
+			  SkvBillingApplication.logger.error("Exception During Credentials Validation!!", e);
 			  e.printStackTrace();
 			  log(e);
 		  }
@@ -168,6 +168,7 @@ public class LoginController implements Initializable{
 	}
 
 }
+
 
 
 
