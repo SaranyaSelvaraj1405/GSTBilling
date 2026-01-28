@@ -27,8 +27,8 @@ jobs:
             <servers>
               <server>
                 <id>github</id>
-                <username>${GITHUB_ACTOR}</username>
-                <password>${GITHUB_TOKEN}</password>
+                <username>SaranyaSelvaraj1405</username>
+                <password>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</password>
               </server>
             </servers>
           </settings>
